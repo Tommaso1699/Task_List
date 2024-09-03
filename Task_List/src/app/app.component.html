@@ -3,38 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Form</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <title>Task List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
 <body>
-
-<div class="container mt-5">
-    <h2 class="mb-4">Task Form</h2>
-    <form>
-        <div class="row">
-            <div class="col-12">
-                <div class="mb-3">
-                    <label for="taskTitle" class="form-label">Task Title</label>
-                    <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title" required>
+    <div class="container mt-5">
+        <h2 class="mb-4">Task Form</h2>
+        <form id="taskForm">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="taskTitle" class="form-label">Task Title</label>
+                        <input type="text" class="form-control" id="taskTitle" placeholder="Task title" required>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="taskDescription" class="form-label">Task Description</label>
+                        <textarea class="form-control" id="taskDescription" rows="4" placeholder="Task description" required></textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="mb-3">
-                    <label for="taskDescription" class="form-label">Task Description</label>
-                    <textarea class="form-control" id="taskDescription" rows="4" placeholder="Enter task description" required></textarea>
-                </div>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
+        </form>
+        <div class="mt-5">
+            <h3>Tasks</h3>
+            <ul id="taskList" class="list-group">
+                <!-- Tasks will be dynamically added here -->
+            </ul>
         </div>
-    </form>
-</div>
+    </div>
 
-<!-- Bootstrap JS and dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskForm = document.getElementById('taskForm');
+            const taskList = document.getElementById('taskList');
 
+            taskForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent the form from submitting the traditional way
+
+                // Get the values from the form inputs
+                const taskTitle = document.getElementById('taskTitle').value;
+                const taskDescription = document.getElementById('taskDescription').value;
+
+                if (taskTitle && taskDescription) { // Ensure both fields are filled
+                    // Create a new list item for the task
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('list-group-item');
+                    listItem.innerHTML = `<strong>${taskTitle}</strong><p>${taskDescription}</p>`;
+
+                    // Add the new task to the task list
+                    taskList.appendChild(listItem);
+
+                    // Clear the form inputs
+                    taskForm.reset();
+                } else {
+                    alert('Please fill out both fields.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,18 @@
+h2 {
+    text-align: center;
+}
+.form-row {
+    display: flex;
+    align-items: flex-start; /* Align items at the start of the row */
+    gap: 1rem; /* Space between form fields */
+}
+
+/* Make each form-group take up equal space */
+.form-group {
+    flex: 1;
+}
+
+/* Adjust width of textareas to fit better */
+.form-control {
+    width: 100%;
+}
