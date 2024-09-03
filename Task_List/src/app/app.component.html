@@ -23,7 +23,8 @@
       <h3>List of tasks</h3>
       <ul class="list-group"> <!-- Listed tasks-->
         <li *ngFor="let task of tasks; let i = index" 
-            class="list-group-item" >
+            class="list-group-item"
+            [ngClass]="{'bg-success': task.done}" >
           <h1>{{ task.title }}</h1>
           <p>{{ task.description }}</p>
           <button *ngIf="!task.done" (click)="TaskDone(i)" class="btn btn-success btn-sm me-2">Task done</button> <!-- Button to mark task as done-->
