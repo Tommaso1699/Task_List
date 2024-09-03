@@ -1,31 +1,36 @@
 <div class="container mt-5">
-  <h2 class="mb-4">Task Form</h2>
-  <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+    <h2 class="mb-4">Task Form</h2>
+    <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
       <div class="row">
-          <div class="col-12">
-              <div class="mb-3">
-                  <label for="taskTitle" class="form-label">Task Title</label>
-                  <input type="text" class="form-control" id="taskTitle" [(ngModel)]="taskTitle" name="taskTitle" required>
-              </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="taskTitle" class="form-label">Task Title</label>
+            <input type="text" class="form-control" id="taskTitle" [(ngModel)]="taskTitle" name="taskTitle" required>
           </div>
-          <div class="col-12">
-              <div class="mb-3">
-                  <label for="taskDescription" class="form-label">Task Description</label>
-                  <textarea class="form-control" id="taskDescription" rows="4" [(ngModel)]="taskDescription" name="taskDescription" required></textarea>
-              </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="taskDescription" class="form-label">Task Description</label>
+            <textarea class="form-control" id="taskDescription" rows="4" [(ngModel)]="taskDescription" name="taskDescription" required></textarea>
           </div>
-          <div class="col-12">
-              <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
       </div>
-  </form>
-  <div class="mt-5">
+    </form>
+    <div class="mt-5">
       <h3>Tasks</h3>
       <ul class="list-group">
-          <li *ngFor="let task of tasks" class="list-group-item">
-              <strong>{{ task.title }}</strong>
-              <p>{{ task.description }}</p>
-          </li>
+        <li *ngFor="let task of tasks; let i = index" 
+            class="list-group-item" 
+            [ngClass]="{'bg-success text-white': task.done}">
+          <strong>{{ task.title }}</strong>
+          <p>{{ task.description }}</p>
+          <button *ngIf="!task.done" (click)="markAsDone(i)" class="btn btn-success btn-sm me-2">Mark as Done</button>
+          <button (click)="deleteTask(i)" class="btn btn-danger btn-sm">Delete</button>
+        </li>
       </ul>
+    </div>
   </div>
-</div>
+  

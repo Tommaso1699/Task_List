@@ -1,19 +1,30 @@
 h2 {
     text-align: center;
-}
-
-.form-row {
+  }
+  
+  .form-row {
     display: flex;
     align-items: flex-start; /* Align items at the start of the row */
     gap: 1rem; /* Space between form fields */
-}
-
-/* Make each form-group take up equal space */
-.form-group {
+  }
+  
+  /* Make each form-group take up equal space */
+  .form-group {
     flex: 1;
-}
-
-/* Adjust width of textareas to fit better */
-.form-control {
+  }
+  
+  /* Adjust width of textareas to fit better */
+  .form-control {
     width: 100%;
-}
+  }
+  
+  /* Add styles for tasks marked as done */
+  .list-group-item.bg-success {
+    background-color: #28a745 !important;
+    color: white;
+  }
+  
+  .list-group-item.bg-success .btn-success {
+    display: none;
+  }
+  
