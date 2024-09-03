@@ -11,30 +11,27 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Task_List';
-  taskTitle: string = '';
-  taskDescription: string = '';
-  tasks: { title: string; description: string; done: boolean }[] = [];
+  title: string = ''; //property of class, type string
+  description: string = ''; //property of class, type string
+  tasks: { title: string; description: string; done: boolean }[] = []; //property of class, array of objects with 3 fields of type string, string and bool 
 
-  onSubmit() {
-    if (this.taskTitle && this.taskDescription) {
-      this.tasks.push({
-        title: this.taskTitle,
-        description: this.taskDescription,
+  onSubmit() { // function that describes what happen, when user press button submit task - if all fields contain text, task is added to array, if one of two fields doesn't contain anything, nothing happens
+    if (this.title && this.description) { //checking condition
+      this.tasks.push({ //adding task to array
+        title: this.title,
+        description: this.description,
         done: false
       });
-      this.taskTitle = '';
-      this.taskDescription = '';
-    } else {
-      alert('Please fill out both fields.');
+      this.title = ''; //clearing property
+      this.description = ''; //clearing property
     }
   }
 
-  markAsDone(index: number) {
+  TaskDone(index: number) { // function to mark task as compleated
     this.tasks[index].done = true;
   }
 
-  deleteTask(index: number) {
+  DeleteTask(index: number) { // function to delete task from list
     this.tasks.splice(index, 1);
   }
 }

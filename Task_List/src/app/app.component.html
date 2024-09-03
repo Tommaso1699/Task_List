@@ -1,34 +1,33 @@
 <div class="container mt-5">
-    <h2 class="mb-4">Task Form</h2>
-    <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+    <h2 class="mb-4">Task List</h2>
+    <form (ngSubmit)="onSubmit()" #taskForm="ngForm"> <!-- form to insert task name with description-->
       <div class="row">
         <div class="col-12">
           <div class="mb-3">
-            <label for="taskTitle" class="form-label">Task Title</label>
-            <input type="text" class="form-control" id="taskTitle" [(ngModel)]="taskTitle" name="taskTitle" required>
+            <label for="title" class="form-label">Task Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="title" name="title" required>
           </div>
         </div>
         <div class="col-12">
           <div class="mb-3">
-            <label for="taskDescription" class="form-label">Task Description</label>
-            <textarea class="form-control" id="taskDescription" rows="4" [(ngModel)]="taskDescription" name="taskDescription" required></textarea>
+            <label for="description" class="form-label">Task Description</label>
+            <textarea class="form-control" id="description" rows="4" [(ngModel)]="description" name="description" required></textarea>
           </div>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Add task to the list</button>
         </div>
       </div>
     </form>
     <div class="mt-5">
-      <h3>Tasks</h3>
-      <ul class="list-group">
+      <h3>List of tasks</h3>
+      <ul class="list-group"> <!-- Listed tasks-->
         <li *ngFor="let task of tasks; let i = index" 
-            class="list-group-item" 
-            [ngClass]="{'bg-success text-white': task.done}">
-          <strong>{{ task.title }}</strong>
+            class="list-group-item" >
+          <h1>{{ task.title }}</h1>
           <p>{{ task.description }}</p>
-          <button *ngIf="!task.done" (click)="markAsDone(i)" class="btn btn-success btn-sm me-2">Mark as Done</button>
-          <button (click)="deleteTask(i)" class="btn btn-danger btn-sm">Delete</button>
+          <button *ngIf="!task.done" (click)="TaskDone(i)" class="btn btn-success btn-sm me-2">Task done</button> <!-- Button to mark task as done-->
+          <button (click)="DeleteTask(i)" class="btn btn-danger btn-sm">Delete task</button> <!-- Button to delete task from list-->
         </li>
       </ul>
     </div>
