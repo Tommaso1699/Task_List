@@ -1,6 +1,7 @@
 h2 {
     text-align: center;
 }
+
 .form-row {
     display: flex;
     align-items: flex-start; /* Align items at the start of the row */
