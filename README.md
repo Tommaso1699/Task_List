@@ -20,12 +20,13 @@ in Angular ver. 18.
 ![image](https://github.com/user-attachments/assets/ecb44b06-ccb7-40a4-ba6e-466b2218f0f5)
 ![image](https://github.com/user-attachments/assets/8dad932c-6aee-482f-99cb-2aac64b70acf)
 # Improvements
-Task list works only locally, unfortunetely I wasn't able to implement interaction with endpoints or implement tests. I have encountered obstacles like:
+Task list is working, code is well written and understandable, however unfortunetely I wasn't able to implement interaction with endpoints or implement tests. I have encountered obstacles like:
 - problem with implementing HTTPClientComponent to Angular (I read that it was used in previous versions of Angular, now not supported),
 - I wasn't working in the past with testing in Angular so it was challenging for me to implement tests,
+
 Even if I wasn't able to implement some required components to my application, I found that they are not so hard to understand and apply.
 With a bit of practise for sure I would understand profoundly usage of them and apply them in my future projects. I had a lot of fun doing Task
-List and I posses a lot of enthusiasm to develop my skills and gain new knowledge in building web applications.
+List and I posses a lot of enthusiasm to enhance my skills and gain new knowledge in building web applications.
 
 
 
